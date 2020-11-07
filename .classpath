@@ -24,7 +24,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/myjava/work_space/vlxd/support/mssql-jdbc-8.4.1.jre14.jar">
+	<classpathentry kind="lib" path="C:/myjava/work_space/AptStore/support/mssql-jdbc-8.4.1.jre14.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
