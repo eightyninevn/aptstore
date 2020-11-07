@@ -1,0 +1,6 @@
+#mainPane {
+	-fx-background-color:#EAEBEF;
+	-fx-background-image: url("../asset/java-logo.png");
+	-fx-background-position: center;
+	-fx-background-repeat: no-repeat;
+}

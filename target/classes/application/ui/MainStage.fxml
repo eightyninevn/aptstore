@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="800.0" prefWidth="1534.0"
+	xmlns="http://javafx.com/javafx/11.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="controller.MainStage">
+	<top>
+		<MenuBar fx:id="mnBar" prefHeight="30.0" prefWidth="1534.0"
+			style="-fx-background-color: #C5D5D5;"
+			BorderPane.alignment="CENTER_LEFT">
+			<menus>
+				<Menu mnemonicParsing="false" text="Hệ thống">
+					<items>
+						<MenuItem mnemonicParsing="false"
+							text="Thông tin doanh nghiệp" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false"
+							text="Thoát chương trình" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Nhân sự">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Nhân viên" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Tài khoản" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Chức vụ" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Đối tác">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Nhà cung cấp" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Khách hàng" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Sản phẩm">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Phân loại" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Sản phẩm" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Quản lý kho">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Kho hàng" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Nhập kho" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Xuất kho" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Chuyển kho" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Bán hàng">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Đơn hàng" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Phiếu thu" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Báo cáo">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Kinh doanh" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Công nợ" />
+					</items>
+					<items>
+						<MenuItem mnemonicParsing="false" text="Tồn kho" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Trợ giúp">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Thông báo lỗi" />
+					</items>
+				</Menu>
+			</menus>
+			<padding>
+				<Insets top="2.0" />
+			</padding>
+			<BorderPane.margin>
+				<Insets />
+			</BorderPane.margin>
+		</MenuBar>
+	</top>
+	<center>
+		<AnchorPane fx:id="mainPane" maxHeight="-Infinity"
+			maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+			prefHeight="740.0" prefWidth="1534.0" />
+	</center>
+	<bottom>
+		<AnchorPane prefHeight="30.0" prefWidth="1534.0"
+			style="-fx-background-color: #C5D5D5;" BorderPane.alignment="CENTER" />
+	</bottom>
+</BorderPane>
