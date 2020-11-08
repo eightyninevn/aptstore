@@ -1,2 +1,7 @@
 /application/
+/controller/
+/dao/
+/model/
+/module-info.class
 /util/
+/META-INF/
