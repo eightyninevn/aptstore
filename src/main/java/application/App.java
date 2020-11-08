@@ -21,9 +21,9 @@ public class App extends Application {
     	
 //    	util.DataBaseConnect.openConnection(); test connection
     	
-        scene = new Scene(loadFXML("MainStage"), 1534, 800);
+        scene = new Scene(loadFXML("MainStage"), 1234, 700);
         scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
-        stage.setTitle("Phầm Mềm Quản Lý Cửa Hàng Vật Liệu Xây Dựng APTS");
+        stage.setTitle("Phầm Mềm Quản Lý Cửa Hàng Vật Liệu Xây Dựng APTS commit ne");
         stage.setScene(scene);
         stage.show();
     }
