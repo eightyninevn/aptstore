@@ -23,7 +23,7 @@ public class App extends Application {
     	
         scene = new Scene(loadFXML("MainStage"), 1234, 700);
         scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
-        stage.setTitle("Phầm Mềm Quản Lý Cửa Hàng Vật Liệu Xây Dựng APT ngày 09-11-2020 thuan nguyen");
+        stage.setTitle("Phầm Mềm Quản Lý Cửa Hàng Vật Liệu Xây Dựng APT ngày 09-11-2020");
         stage.setScene(scene);
         stage.show();
     }
