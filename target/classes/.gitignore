@@ -1,10 +1,2 @@
-<<<<<<< HEAD
-=======
-/application/
-/controller/
-/dao/
-/model/
-/module-info.class
 /util/
->>>>>>> cdc943d68a392552aeb8afd93632246ec344dc44
-/META-INF/
+/application/
