@@ -1,2 +1,10 @@
-/META-INF/
 /application/
+<<<<<<< HEAD
+=======
+/controller/
+/dao/
+/model/
+/module-info.class
+/util/
+/META-INF/
+>>>>>>> leduc

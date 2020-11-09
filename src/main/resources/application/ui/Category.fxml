@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CategoryCtrl">
+   <children>
+      <Label layoutX="71.0" layoutY="70.0" text="Name" />
+      <TextField fx:id="nameTf" layoutX="132.0" layoutY="66.0" prefHeight="25.0" prefWidth="344.0" />
+      <CheckBox fx:id="activeChkbox" layoutX="132.0" layoutY="118.0" mnemonicParsing="false" text="Active" />
+      <TableView fx:id="Table" layoutX="132.0" layoutY="195.0" prefHeight="200.0" prefWidth="470.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="93.0" text="ID" />
+          <TableColumn fx:id="nameColumn" prefWidth="246.0" text="NAME" />
+            <TableColumn fx:id="activeColumn" prefWidth="130.0" text="ACTIVE" />
+        </columns>
+      </TableView>
+      <Button fx:id="Add" layoutX="132.0" layoutY="155.0" mnemonicParsing="false" onAction="#addCategory" text="Add" />
+      <Button fx:id="Edit" layoutX="304.0" layoutY="155.0" mnemonicParsing="false" text="Edit" />
+      <Button fx:id="Delete" layoutX="210.0" layoutY="155.0" mnemonicParsing="false" onAction="#deleteCategory" text="Delete" />
+   </children>
+</AnchorPane>
