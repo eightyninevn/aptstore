@@ -1,5 +1,7 @@
-/META-INF/
 /application/
-/util/
+/controller/
 /dao/
 /model/
+/module-info.class
+/util/
+/META-INF/
