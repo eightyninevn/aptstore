@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class DBUtil {
 
 	public static DBUtil instance = new DBUtil();
-	private String connString = "jdbc:sqlserver://localhost;databaseName=APTStore;user=sa;password=duc12345";
+	private String connString = "jdbc:sqlserver://localhost;databaseName=APTStore;user=sa;password=12345";
 	
 	private DBUtil() {
 		super();
