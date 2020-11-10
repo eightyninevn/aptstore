@@ -65,4 +65,26 @@ public class CategoryDao {
 		}
 		return data;
 	}
+	
+	public ObservableList<Category> searchCategory(String Query) {
+		ObservableList<Category> data = FXCollections.observableArrayList();
+		ResultSet rs = util.DBUtil.instance.Query("SELECT * FROM Category WHERE name LIKE N'%"+ Query + "%'");
+		try {
+			while (rs.next()) {
+				Category dt = new Category();
+				dt.setId(rs.getInt(1));
+				dt.setName(rs.getNString(2));
+				dt.setActive(rs.getBoolean(3));
+				data.add(dt);
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return data;
+		
+	}
+	
 }
