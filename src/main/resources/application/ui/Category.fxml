@@ -13,15 +13,17 @@
       <Label layoutX="71.0" layoutY="70.0" text="Name" />
       <TextField fx:id="nameTf" layoutX="132.0" layoutY="66.0" prefHeight="25.0" prefWidth="344.0" />
       <CheckBox fx:id="activeChkbox" layoutX="132.0" layoutY="118.0" mnemonicParsing="false" text="Active" />
-      <TableView fx:id="Table" layoutX="132.0" layoutY="195.0" prefHeight="200.0" prefWidth="470.0">
+      <TableView fx:id="Table" layoutX="132.0" layoutY="195.0" onMouseClicked="#SelectedItem" prefHeight="200.0" prefWidth="470.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="93.0" text="ID" />
           <TableColumn fx:id="nameColumn" prefWidth="246.0" text="NAME" />
             <TableColumn fx:id="activeColumn" prefWidth="130.0" text="ACTIVE" />
         </columns>
       </TableView>
-      <Button fx:id="Add" layoutX="132.0" layoutY="155.0" mnemonicParsing="false" onAction="#addCategory" text="Add" />
-      <Button fx:id="Edit" layoutX="304.0" layoutY="155.0" mnemonicParsing="false" text="Edit" />
-      <Button fx:id="Delete" layoutX="210.0" layoutY="155.0" mnemonicParsing="false" onAction="#deleteCategory" text="Delete" />
+      <Button fx:id="addBtn" layoutX="132.0" layoutY="155.0" mnemonicParsing="false" onAction="#addCategory" text="Add" />
+      <Button fx:id="editBtn" layoutX="304.0" layoutY="155.0" mnemonicParsing="false" onAction="#editCategory" text="Edit" />
+      <Button fx:id="deleteBtn" layoutX="210.0" layoutY="155.0" mnemonicParsing="false" onAction="#deleteCategory" text="Delete" />
+      <Button fx:id="searchBtn" layoutX="465.0" layoutY="155.0" mnemonicParsing="false" onAction="#searchCategory" text="Search" />
+      <Button fx:id="showAllBtn" layoutX="540.0" layoutY="155.0" mnemonicParsing="false" onAction="#Refresh" text="Show All" />
    </children>
 </AnchorPane>
