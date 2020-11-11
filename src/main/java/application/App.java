@@ -18,10 +18,8 @@ public class App extends Application {
     @SuppressWarnings("exports")
 	@Override
     public void start(Stage stage) throws IOException {
-    	
-//    	util.DataBaseConnect.openConnection(); test connection
-    	
-        scene = new Scene(loadFXML("Category"), 1234, 700);
+    		
+        scene = new Scene(loadFXML("Unit"), 1234, 700);
         scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
         stage.setTitle("Phầm Mềm Quản Lý Cửa Hàng Vật Liệu Xây Dựng APT ngày 09-11-2020");
         stage.setScene(scene);
