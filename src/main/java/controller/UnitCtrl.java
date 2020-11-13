@@ -4,11 +4,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dao.UnitDao;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Unit;
@@ -17,11 +17,11 @@ public class UnitCtrl implements Initializable {
 	@FXML
 	private TableView<Unit> Table;
 	@FXML
-	private TableColumn<Unit, Integer> idColumn;
+	private TableColumn<Unit, Integer> noColumn;
 	@FXML
 	private TableColumn<Unit, String> nameColumn;
 	@FXML
-	private TableColumn<Unit, Boolean> activeColumn;
+	private TableColumn<Unit, String> activeColumn;
 	@FXML
 	private TextField nameTf;
 	@FXML
@@ -39,11 +39,20 @@ public class UnitCtrl implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		ObservableList<Unit> UnitList = allList();
-		idColumn.setCellValueFactory(new PropertyValueFactory<Unit, Integer>("id"));
+		noColumn.setCellValueFactory(
+				cell -> new ReadOnlyObjectWrapper<Integer>(Table.getItems().indexOf(cell.getValue()) + 1));
 		nameColumn.setCellValueFactory(new PropertyValueFactory<Unit, String>("name"));
-		activeColumn.setCellValueFactory(new PropertyValueFactory<Unit, Boolean>("active"));
+		activeColumn.setCellValueFactory(cell -> {
+			Boolean active = cell.getValue().isActive();
+			String activeString;
+			if (active == true) {
+				activeString = "Yes";
+			} else {
+				activeString = "No";
+			}
+			return new ReadOnlyObjectWrapper<String>(activeString);
+		});
 		Table.setItems(UnitList);
 	}
 
@@ -51,24 +60,18 @@ public class UnitCtrl implements Initializable {
 		Unit item = new Unit();
 		item.setName(nameTf.getText());
 		item.setActive(activeChkbox.isSelected());
-
-		if (checkEmpty(new String[] {nameTf.getText()})) {
-			Alert alert1 = new Alert(AlertType.WARNING, "Please fill in all the required field(s)", ButtonType.CLOSE);
-			alert1.show();
-		} else if (UnitDao.instance.checkDouble(new String[] {nameTf.getText()})) {
-			Alert alert2 = new Alert(AlertType.WARNING, "The Unit is existing!", ButtonType.CLOSE);
-			alert2.show();
+		if (checkEmpty(new String[] { nameTf.getText() })) {
+			util.AlertUtil.empty().show();
+		} else if (UnitDao.instance.checkDouble(new String[] { nameTf.getText() })) {
+			util.AlertUtil.existing().show();
 		} else {
-			Alert alert3 = new Alert(AlertType.CONFIRMATION, "Please confirm to add a new Unit", ButtonType.YES,
-					ButtonType.CANCEL);
-			alert3.showAndWait().ifPresent(type -> {
+			util.AlertUtil.confirmToAdd().showAndWait().ifPresent(type -> {
 				if (type == ButtonType.CANCEL) {
 					Refresh();
 				} else {
 					UnitDao.instance.Create(item);
 					Refresh();
-					Alert alert4 = new Alert(AlertType.INFORMATION, "Successfully", ButtonType.CLOSE);
-					alert4.show();
+					util.AlertUtil.successfully().show();
 				}
 			});
 		}
@@ -77,19 +80,15 @@ public class UnitCtrl implements Initializable {
 	public void deleteUnit() {
 		Unit item = Table.getSelectionModel().getSelectedItem();
 		if (item == null) {
-			Alert Alert1 = new Alert(AlertType.INFORMATION, "Please select Unit you want to delete", ButtonType.YES);
-			Alert1.show();
+			util.AlertUtil.deleteNull().show();
 		} else {
-			Alert alert2 = new Alert(AlertType.CONFIRMATION, "Please confirm to delete selected Unit", ButtonType.YES,
-					ButtonType.CANCEL);
-			alert2.showAndWait().ifPresent(type -> {
+			util.AlertUtil.confirmToDelete().showAndWait().ifPresent(type -> {
 				if (type == ButtonType.CANCEL) {
 					Refresh();
 				} else {
 					UnitDao.instance.Delete(String.valueOf(item.getId()));
 					Refresh();
-					Alert alert3 = new Alert(AlertType.INFORMATION, "Successfully", ButtonType.CLOSE);
-					alert3.show();
+					util.AlertUtil.successfully().show();
 				}
 			});
 		}
@@ -98,29 +97,22 @@ public class UnitCtrl implements Initializable {
 	public void editUnit() {
 		Unit item = Table.getSelectionModel().getSelectedItem();
 		if (item == null) {
-			Alert Alert1 = new Alert(AlertType.INFORMATION, "Please select Unit you want to edit", ButtonType.YES);
-			Alert1.show();
+			util.AlertUtil.editNull().show();
 		} else {
-			if (checkEmpty(new String[] {nameTf.getText()})) {
-				Alert alert1 = new Alert(AlertType.WARNING, "Please fill in all the required field(s)",
-						ButtonType.CLOSE);
-				alert1.show();
-			} else if (UnitDao.instance.checkDouble(new String[] {nameTf.getText()})
+			if (checkEmpty(new String[] { nameTf.getText() })) {
+				util.AlertUtil.empty().show();
+			} else if (UnitDao.instance.checkDouble(new String[] { nameTf.getText() })
 					&& !item.getName().equals(nameTf.getText())) {
-				Alert alert2 = new Alert(AlertType.WARNING, "The Unit is existing!", ButtonType.CLOSE);
-				alert2.show();
+				util.AlertUtil.existing().show();
 			} else {
-				Alert alert3 = new Alert(AlertType.CONFIRMATION, "Please confirm to edit selected Unit", ButtonType.YES,
-						ButtonType.CANCEL);
-				alert3.showAndWait().ifPresent(type -> {
+				util.AlertUtil.confirmToEdit().showAndWait().ifPresent(type -> {
 					if (type == ButtonType.CANCEL) {
 						Refresh();
 					} else {
-						UnitDao.instance.Edit(new String[] {nameTf.getText(),
-								activeChkbox.isSelected() == true ? "1" : "0", String.valueOf(item.getId())});
+						UnitDao.instance.Edit(new String[] { nameTf.getText(),
+								activeChkbox.isSelected() == true ? "1" : "0", String.valueOf(item.getId()) });
 						Refresh();
-						Alert alert4 = new Alert(AlertType.INFORMATION, "Successfully", ButtonType.CLOSE);
-						alert4.show();
+						util.AlertUtil.successfully().show();
 					}
 				});
 			}
@@ -131,15 +123,12 @@ public class UnitCtrl implements Initializable {
 		ObservableList<Unit> searchList = FXCollections.observableArrayList();
 		String searchName = nameTf.getText();
 		if (searchName == null || searchName.isEmpty()) {
-			Alert Alert1 = new Alert(AlertType.INFORMATION, "Please type Unit's name you want to search",
-					ButtonType.YES);
-			Alert1.show();
+			util.AlertUtil.searchNull().show();
 		} else {
 			searchList = (ObservableList<Unit>) UnitDao.instance.searchUnit(searchName);
 			if (searchList.isEmpty()) {
 				Table.getItems().clear();
-				Alert Alert2 = new Alert(AlertType.INFORMATION, "No result found");
-				Alert2.show();
+				util.AlertUtil.searchNoReSult().show();
 			} else {
 				Table.getItems().clear();
 				Table.setItems(searchList);
@@ -149,7 +138,7 @@ public class UnitCtrl implements Initializable {
 
 	public void SelectedItem() {
 		Unit selected = Table.getSelectionModel().getSelectedItem();
-		if(selected != null) {
+		if (selected != null) {
 			nameTf.setText(selected.getName());
 			activeChkbox.setSelected(selected.isActive());
 		}
