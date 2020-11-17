@@ -48,5 +48,19 @@ public class AlertUtil {
 	public static Alert searchNoReSult() {
 		return new Alert(AlertType.INFORMATION, "No result found.", ButtonType.YES);
 	}
-
+	public static Alert email() {
+		return new Alert(AlertType.WARNING, "Email is invalid !.", ButtonType.CLOSE);
+	}
+	public static Alert phone() {
+		return new Alert(AlertType.WARNING, "Phone is invalid !.", ButtonType.CLOSE);
+	}
+	public static Alert dateInvalid() {
+		return new Alert(AlertType.WARNING, "Date is invalid !.", ButtonType.CLOSE);
+	}
+	public static Alert priceInvalid() {
+		return new Alert(AlertType.WARNING, "Price is invalid !.", ButtonType.CLOSE);
+	}
+	public static Alert amountInvalid() {
+		return new Alert(AlertType.WARNING, "Amount is invalid !.", ButtonType.CLOSE);
+	}
 }

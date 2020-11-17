@@ -19,7 +19,7 @@ public class App extends Application {
 	@Override
     public void start(Stage stage) throws IOException {
     		
-        scene = new Scene(loadFXML("Unit"), 900, 700);
+        scene = new Scene(loadFXML("Product"), 900, 700);
         scene.getStylesheets().add(getClass().getResource("style/style.css").toExternalForm());
         stage.setTitle("Phầm Mềm Quản Lý Cửa Hàng Vật Liệu Xây Dựng APT ngày 09-11-2020");
         stage.setScene(scene);

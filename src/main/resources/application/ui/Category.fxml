@@ -8,22 +8,26 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CategoryCtrl">
-   <children>
-      <Label layoutX="71.0" layoutY="70.0" text="Name" />
-      <TextField fx:id="nameTf" layoutX="132.0" layoutY="66.0" prefHeight="25.0" prefWidth="344.0" />
-      <CheckBox fx:id="activeChkbox" layoutX="132.0" layoutY="118.0" mnemonicParsing="false" text="Active" />
-      <TableView fx:id="Table" layoutX="132.0" layoutY="195.0" onMouseClicked="#SelectedItem" prefHeight="200.0" prefWidth="470.0">
-        <columns>
-          <TableColumn fx:id="idColumn" prefWidth="93.0" text="ID" />
-          <TableColumn fx:id="nameColumn" prefWidth="246.0" text="NAME" />
-            <TableColumn fx:id="activeColumn" prefWidth="130.0" text="ACTIVE" />
-        </columns>
-      </TableView>
-      <Button fx:id="addBtn" layoutX="132.0" layoutY="155.0" mnemonicParsing="false" onAction="#addCategory" text="Add" />
-      <Button fx:id="editBtn" layoutX="304.0" layoutY="155.0" mnemonicParsing="false" onAction="#editCategory" text="Edit" />
-      <Button fx:id="deleteBtn" layoutX="210.0" layoutY="155.0" mnemonicParsing="false" onAction="#deleteCategory" text="Delete" />
-      <Button fx:id="searchBtn" layoutX="465.0" layoutY="155.0" mnemonicParsing="false" onAction="#searchCategory" text="Search" />
-      <Button fx:id="showAllBtn" layoutX="540.0" layoutY="155.0" mnemonicParsing="false" onAction="#Refresh" text="Show All" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CategoryCtrl">
+	<children>
+		<Label layoutX="419.0" layoutY="65.0" prefHeight="18.0" prefWidth="100" text="Category" />
+			
+		<Label layoutX="167.0" layoutY="141.0" text="Name" />
+		<TextField fx:id="nameTf" layoutX="233.0" layoutY="137.0" prefHeight="26.0" prefWidth="500.0" />
+		<CheckBox fx:id="activeChkbox" layoutX="233.0" layoutY="188.0" mnemonicParsing="false" text="Active" />
+
+		<Button fx:id="addBtn" layoutX="238.0" layoutY="225.0" mnemonicParsing="false" onAction="#addCategory" prefHeight="26.0" prefWidth="78.0" text="Add" />
+		<Button fx:id="editBtn" layoutX="338.0" layoutY="225.0" mnemonicParsing="false" onAction="#editCategory" prefHeight="26.0" prefWidth="78.0" text="Edit" />
+		<Button fx:id="deleteBtn" layoutX="438.0" layoutY="225.0" mnemonicParsing="false" onAction="#deleteCategory" prefHeight="26.0" prefWidth="78.0" text="Delete" />
+		<Button fx:id="searchBtn" layoutX="538.0" layoutY="225.0" mnemonicParsing="false" onAction="#searchCategory" prefHeight="26.0" prefWidth="78.0" text="Search" />
+		<Button fx:id="showAllBtn" layoutX="638.0" layoutY="224.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="26.0" prefWidth="78.0" text="Show All" />
+
+		<TableView fx:id="Table" layoutX="238.0" layoutY="350.0" onMouseClicked="#SelectedItem" prefHeight="300.0" prefWidth="500.0">
+			<columns>
+				<TableColumn fx:id="noColumn" prefWidth="75" style="-fx-alignment: CENTER;" text="NO" />
+				<TableColumn fx:id="nameColumn" prefWidth="350.0" style="-fx-alignment: CENTER;" text="NAME" />
+				<TableColumn fx:id="activeColumn" prefWidth="75.0" style="-fx-alignment: CENTER;" text="ACTIVE" />
+			</columns>
+		</TableView>
+	</children>
 </AnchorPane>
