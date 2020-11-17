@@ -38,7 +38,7 @@ public class UnitCtrl implements Initializable {
 	private Button showAllBtn;
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialize(URL url, ResourceBundle resources) {
 		ObservableList<Unit> UnitList = allList();
 		noColumn.setCellValueFactory(
 				cell -> new ReadOnlyObjectWrapper<Integer>(Table.getItems().indexOf(cell.getValue()) + 1));
@@ -149,9 +149,15 @@ public class UnitCtrl implements Initializable {
 		Table.setItems(allList());
 	}
 
-	public ObservableList<Unit> allList() {
+	public static ObservableList<Unit> allList() {
 		ObservableList<Unit> data = FXCollections.observableArrayList();
-		data = (ObservableList<Unit>) UnitDao.instance.getAllUnit();
+		data = (ObservableList<Unit>) UnitDao.instance.getAllUnit(0,1);
+		return data;
+	}
+	
+	public static ObservableList<Unit> comboBoxUnit() {
+		ObservableList<Unit> data = FXCollections.observableArrayList();
+		data = (ObservableList<Unit>) UnitDao.instance.getAllUnit(1,1);
 		return data;
 	}
 

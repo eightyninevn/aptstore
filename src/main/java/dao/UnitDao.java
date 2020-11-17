@@ -45,9 +45,9 @@ public class UnitDao {
 		}
 	}
 
-	public ObservableList<Unit> getAllUnit() {
+	public ObservableList<Unit> getAllUnit(int t, int f) {
 		ObservableList<Unit> data = FXCollections.observableArrayList();
-		ResultSet rs = util.DBUtil.instance.Query("SELECT * FROM Unit ORDER BY id ASC");
+		ResultSet rs = util.DBUtil.instance.Query("SELECT * FROM Unit WHERE active =" + t +" OR active ="+ f + "  ORDER BY id ASC");
 		try {
 			while (rs.next()) {
 				Unit dt = new Unit();

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductCtrl">
+	<children>
+		<Label layoutX="400.0" layoutY="80.0" prefHeight="18.0" prefWidth="100" text="Product" />	
+      	
+		<Label layoutX="169.0" layoutY="157.0" prefHeight="18.0" prefWidth="43.0" text="Name" />
+		<TextField fx:id="nameTf" layoutX="234.0" layoutY="153.0" prefHeight="26.0" prefWidth="269.0" />
+		
+		<Label layoutX="550.0" layoutY="157.0" prefHeight="18.0" prefWidth="43.0" text="Unit" />
+      	<ComboBox fx:id="unitCbx" layoutX="607.0" layoutY="153.0" prefHeight="26.0" prefWidth="123.0" promptText="Please Choose" />
+		
+		<Label layoutX="169.0" layoutY="206.0" prefHeight="18.0" prefWidth="62.0" text="Category" />
+		<ComboBox fx:id="categoryCbx" layoutX="236.0" layoutY="202.0" prefHeight="26.0" prefWidth="270.0" promptText="Please Choose" />
+      	
+     	<Label layoutX="551.0" layoutY="206.0" text="Price" />
+      	<TextField fx:id="priceTf" layoutX="611.0" layoutY="203.0" prefHeight="26.0" prefWidth="123.0" />
+      	<Label layoutX="170.0" layoutY="254.0" text="Description" />
+      	<TextField fx:id="descriptionTf" layoutX="234.0" layoutY="250.0" prefHeight="26.0" prefWidth="500.0" />
+		<CheckBox fx:id="activeChkbox" layoutX="234.0" layoutY="298.0" mnemonicParsing="false" text="Active" />
+
+		<Button fx:id="addBtn" layoutX="239.0" layoutY="335.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="26.0" prefWidth="78.0" text="Add" />
+		<Button fx:id="editBtn" layoutX="339.0" layoutY="335.0" mnemonicParsing="false" onAction="#editProduct" prefHeight="26.0" prefWidth="78.0" text="Edit" />
+		<Button fx:id="deleteBtn" layoutX="439.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="26.0" prefWidth="78.0" text="Delete" />
+		<Button fx:id="searchBtn" layoutX="539.0" layoutY="335.0" mnemonicParsing="false" onAction="#searchProduct" prefHeight="26.0" prefWidth="78.0" text="Search" />
+		<Button fx:id="showAllBtn" layoutX="639.0" layoutY="334.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="26.0" prefWidth="78.0" text="Show All" />
+
+		<TableView fx:id="Table" layoutY="386.0" onMouseClicked="#SelectedItem" prefHeight="300.0" prefWidth="900">
+			<columns>
+				<TableColumn fx:id="noColumn" prefWidth="48.80001986026764" style="-fx-alignment: CENTER;" text="NO" />
+				<TableColumn fx:id="nameColumn" prefWidth="238.39996337890625" text="NAME" />
+				<TableColumn fx:id="unitColumn" prefWidth="67.199951171875" text="UNIT" />
+				<TableColumn fx:id="priceColumn" prefWidth="140.800048828125" text="PRICE" />
+				<TableColumn fx:id="categoryColumn" prefWidth="124.00003051757812" text="CATEGORY" />
+				<TableColumn fx:id="descriptionColumn" prefWidth="188.0" text="DESCRIPTION" />
+				<TableColumn fx:id="activeColumn" prefWidth="92.7999267578125" style="-fx-alignment: CENTER;" text="ACTIVE" />
+			</columns>
+		</TableView>
+ 
+	</children>
+</AnchorPane>
